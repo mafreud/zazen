@@ -22,4 +22,4 @@ It's expensive.
 Zenhub only supports English.
 
 ## Solution
-I will solve them by the power of Flutter.
+I will solve them by the power of Flutter. Of course, zazen is OSS.
