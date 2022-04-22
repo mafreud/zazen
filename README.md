@@ -11,7 +11,12 @@ Zenhub does not provider native mobile apps.
 It's expensive. 
 
 ### Fatal bugs
-Sometimes, new issue cannot be made. blackout.
+- Sometimes, new issue cannot be made. blackout.
+- Card cannot be moved between boards.
+
+### Low UX
+- Where is settings?
+- Licensing?
 
 ## Solution
 I will solve them by the power of Flutter.
