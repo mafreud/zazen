@@ -18,5 +18,8 @@ It's expensive.
 - Where is settings?
 - Licensing?
 
+### Localization
+Zenhub only supports English.
+
 ## Solution
 I will solve them by the power of Flutter.
