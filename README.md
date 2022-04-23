@@ -1,16 +1,31 @@
-# zazen
+# Zazen - Better alternative for Zenhub
 
-A new Flutter project.
+Currently, Zenhub has some problems.
 
-## Getting Started
+## Problems
 
-This project is a starting point for a Flutter application.
+### Lack of native apps
 
-A few resources to get you started if this is your first Flutter project:
+Zenhub does not provider native mobile apps.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Pricing
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+It's expensive.
+
+### Fatal bugs
+
+- Sometimes, new issue cannot be made. blackout.
+- Card cannot be moved between boards.
+
+### Low UX
+
+- Where is settings?
+- Licensing?
+
+### Localization
+
+Zenhub only supports English.
+
+## Solution
+
+I will solve them by the power of Flutter. Of course, zazen is OSS.
