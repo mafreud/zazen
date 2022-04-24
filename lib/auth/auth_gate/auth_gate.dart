@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zazen/auth/sign_in/sign_in_page.dart';
-import 'package:zazen/onboarding/onboarding_page.dart';
+import 'package:zazen/dashboard/dashboard_page.dart';
+import 'package:zazen/loading/loading_page.dart';
 
 import '../auth_service.dart';
 
@@ -13,13 +14,13 @@ class AuthGate extends ConsumerWidget {
     final authStateStream = ref.watch(authStateStreamProvider);
 
     return authStateStream.when(
-      loading: () => const Center(child: CircularProgressIndicator()),
+      loading: () => const LoadingPage(),
       error: (err, stack) => Text('Error: $err'),
       data: (user) {
         if (user == null) {
-          return const OnboardingPage();
+          return const SignInPage();
         }
-        return const SignInPage();
+        return const DashboardPage();
       },
     );
   }

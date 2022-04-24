@@ -13,11 +13,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(ProviderScope(child: MyApp()));
+  runApp(ProviderScope(child: App()));
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  App({Key? key}) : super(key: key);
 
   final _router = GoRouter(
     routes: [
