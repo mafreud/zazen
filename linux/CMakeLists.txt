@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
 set(BINARY_NAME "zazen")
-set(APPLICATION_ID "com.example.zazen")
+set(APPLICATION_ID "com.zazen.release")
 
 cmake_policy(SET CMP0063 NEW)
 
