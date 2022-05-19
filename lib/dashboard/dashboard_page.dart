@@ -6,6 +6,7 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF25351E),
       body: Row(children: [
         NavigationRail(
           selectedIndex: 0,
