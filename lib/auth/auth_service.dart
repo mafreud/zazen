@@ -1,5 +1,6 @@
 // 📦 Package imports:
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 🌎 Project imports:
@@ -33,4 +34,7 @@ class AuthService {
   Stream<User?> get authStateStream => _firebaseAuthService.authStateStream;
 
   String? get currentUserId => _firebaseAuthService.currentUserId;
+
+  Future<UserCredential?> signInWithGithub(BuildContext context) =>
+      _firebaseAuthService.signInWithGithub(context);
 }

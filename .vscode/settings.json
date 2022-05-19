@@ -9,5 +9,9 @@
     "firestore",
     "riverpod",
     "Zenhub"
-  ]
+  ],
+  "dart.flutterSdkPaths": [
+    "/Users/masahiroaoki/fvm/versions"
+  ],
+  "dart.flutterSdkPath": "/Users/masahiroaoki/fvm/versions/3.0.0"
 }

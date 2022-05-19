@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zazen/auth/auth_service.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends ConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _auth = ref.watch(authServiceProvider);
     return Scaffold(
       backgroundColor: const Color(0xFF1F2023),
       body: Center(
@@ -12,14 +15,16 @@ class SignInPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Zazen - better alternative of Zenhub',
+              'Zazen - a better alternative of Zenhub',
               style: TextStyle(color: Colors.white, fontSize: 30),
             ),
             const SizedBox(
               height: 60,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                await _auth.signInWithGithub(context);
+              },
               child: const Text(
                 'Sign in with Github',
               ),
