@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:zazen/utilities/go_router/router.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -6,35 +8,25 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF25351E),
-      body: Row(children: [
-        NavigationRail(
-          selectedIndex: 0,
-          onDestinationSelected: (int index) {
-            // setState(() {
-            //   _selectedIndex = index;
-            // });
-          },
-          labelType: NavigationRailLabelType.selected,
-          destinations: const <NavigationRailDestination>[
-            NavigationRailDestination(
-              icon: Icon(Icons.favorite_border),
-              selectedIcon: Icon(Icons.favorite),
-              label: Text('First'),
-            ),
-            NavigationRailDestination(
-              icon: Icon(Icons.bookmark_border),
-              selectedIcon: Icon(Icons.book),
-              label: Text('Second'),
-            ),
-            NavigationRailDestination(
-              icon: Icon(Icons.star_border),
-              selectedIcon: Icon(Icons.star),
-              label: Text('Third'),
-            ),
+      appBar: AppBar(title: const Text('AppBar')),
+      backgroundColor: Colors.grey[900],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('hey'),
+            ElevatedButton(
+              onPressed: () {
+                context.goNamed(
+                  AppRoute.issueDetail.name,
+                  params: {'id': '12345'},
+                );
+              },
+              child: const Text('Go'),
+            )
           ],
         ),
-      ]),
+      ),
     );
   }
 }

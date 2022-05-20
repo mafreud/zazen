@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zazen/auth/auth_service.dart';
+
+import '../../utilities/go_router/router.dart';
 
 class SignInPage extends ConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -27,7 +30,7 @@ class SignInPage extends ConsumerWidget {
               style: ElevatedButton.styleFrom(
                   primary: Colors.deepPurpleAccent[700]),
               onPressed: () async {
-                await _auth.signInWithGithub(context);
+                context.goNamed(AppRoute.dashboard.name);
               },
               child: const Text(
                 'Sign in with Github',
