@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:zazen/auth/auth_service.dart';
 
 import '../../utilities/go_router/router.dart';
@@ -19,16 +18,15 @@ class SignInPage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              '座禅 - zazen',
-              style: GoogleFonts.yomogi(color: Colors.white, fontSize: 30),
+            const Text(
+              'Lucidity',
+              style: TextStyle(color: Colors.white, fontSize: 30),
             ),
             const SizedBox(
-              height: 60,
+              height: 30,
             ),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.deepPurpleAccent[700]),
+              style: ElevatedButton.styleFrom(primary: Colors.blue),
               onPressed: () async {
                 context.goNamed(AppRoute.dashboard.name);
               },
