@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: true
+          # optional, change this to force refresh cache
+          cache-key: flutter_cache
       - run: flutter build web --dart-define=GITHUB_CLIENT_ID=${{ secrets.GH_CLIENT_ID }} --dart-define=GITHUB_CLIENT_SECRET=${{ secrets.GH_CLIENT_SECRET }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
