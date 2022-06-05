@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:zazen/auth/auth_service.dart';
-
-import '../../utilities/go_router/router.dart';
+import 'package:zazen/auth/sign_in/sign_in_page_view_model.dart';
 
 class SignInPage extends ConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _auth = ref.watch(authServiceProvider);
+    final viewModel = ref.watch(signInPageViewModelProvider);
     return Scaffold(
       // backgroundColor: Colors.deepPurpleAccent[700],
       backgroundColor: Colors.grey[900],
@@ -28,7 +25,7 @@ class SignInPage extends ConsumerWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(primary: Colors.blue),
               onPressed: () async {
-                context.goNamed(AppRoute.dashboard.name);
+                viewModel.signInWithGithub(context);
               },
               child: const Text(
                 'Sign in with Github',

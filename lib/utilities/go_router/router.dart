@@ -6,13 +6,13 @@ import '../../auth/sign_in/sign_in_page.dart';
 import '../../dashboard/dashboard_page.dart';
 import '../../error/error_page.dart';
 
-enum AppRoute { home, signIn, dashboard, issueDetail }
+enum AppRoute { root, signIn, dashboard, issueDetail }
 
 final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      name: AppRoute.home.name,
+      name: AppRoute.root.name,
       builder: (context, state) => const SignInPage(),
     ),
     GoRoute(
