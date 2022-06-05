@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:zazen/dashboard/issue/issue_detail_page.dart';
@@ -42,6 +43,20 @@ final router = GoRouter(
       ],
     )
   ],
+  initialLocation: '/',
   errorBuilder: (context, state) => ErrorPage(exception: state.error),
   urlPathStrategy: UrlPathStrategy.path,
+  refreshListenable:
+      GoRouterRefreshStream(FirebaseAuth.instance.authStateChanges()),
+  redirect: (state) {
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (user == null && state.location != '/signIn') {
+      return '/signIn';
+    }
+    if (user != null && state.location != '/dashboard') {
+      return '/dashboard';
+    }
+    return null;
+  },
 );
