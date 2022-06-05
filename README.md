@@ -1,7 +1,6 @@
-<img width="500" alt="スクリーンショット 2022-05-19 22 35 10" src="https://user-images.githubusercontent.com/28733986/169306142-8ca508d2-f615-4a85-b97f-559f082c53f9.png">
-
-
 # lucidity - Better alternative for Zenhub
+
+https://zazen-release.web.app/#/
 
 Currently, Zenhub has some problems.
 
