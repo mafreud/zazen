@@ -43,4 +43,5 @@ final router = GoRouter(
     )
   ],
   errorBuilder: (context, state) => ErrorPage(exception: state.error),
+  urlPathStrategy: UrlPathStrategy.path,
 );
