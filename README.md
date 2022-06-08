@@ -1,7 +1,5 @@
 # 座禅 - zazen - Better alternative for Zenhub
 
-https://zazen-release.web.app/#/
-
 Currently, Zenhub has some problems.
 
 現在、Zenhubには複数の致命的なバグがあります。Zazenはそれら問題を解決します。
