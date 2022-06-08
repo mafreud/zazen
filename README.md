@@ -1,4 +1,4 @@
-# 座禅 - Zazen - Better alternative for Zenhub
+# 座禅 - zazen - Better alternative for Zenhub
 
 https://zazen-release.web.app/#/
 
