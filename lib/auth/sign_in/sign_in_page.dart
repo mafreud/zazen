@@ -16,7 +16,7 @@ class SignInPage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Lucidity',
+              '座禅 - zazen',
               style: TextStyle(color: Colors.white, fontSize: 30),
             ),
             const SizedBox(
