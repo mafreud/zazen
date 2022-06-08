@@ -78,13 +78,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  dotted_border:
-    dependency: "direct main"
-    description:
-      name: dotted_border
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0+2"
   fake_async:
     dependency: transitive
     description:
@@ -198,71 +191,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.3.2"
-  gql:
-    dependency: transitive
-    description:
-      name: gql
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.13.1"
-  gql_dedupe_link:
-    dependency: transitive
-    description:
-      name: gql_dedupe_link
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.2"
-  gql_error_link:
-    dependency: transitive
-    description:
-      name: gql_error_link
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.2"
-  gql_exec:
-    dependency: transitive
-    description:
-      name: gql_exec
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.0"
-  gql_http_link:
-    dependency: transitive
-    description:
-      name: gql_http_link
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.2"
-  gql_link:
-    dependency: transitive
-    description:
-      name: gql_link
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.2"
-  gql_transform_link:
-    dependency: transitive
-    description:
-      name: gql_transform_link
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.2"
-  graphql:
-    dependency: "direct main"
-    description:
-      name: graphql
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.1.1"
-  hive:
-    dependency: transitive
-    description:
-      name: hive
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.1"
   http:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -303,13 +233,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
-  macos_ui:
-    dependency: "direct main"
-    description:
-      name: macos_ui
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.4.1+1"
   matcher:
     dependency: transitive
     description:
@@ -331,20 +254,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-  normalize:
-    dependency: transitive
-    description:
-      name: normalize
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.6.0+1"
-  oauth2:
-    dependency: "direct main"
-    description:
-      name: oauth2
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   path:
     dependency: transitive
     description:
@@ -352,20 +261,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
-  path_drawing:
-    dependency: transitive
-    description:
-      name: path_drawing
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
-  path_parsing:
-    dependency: transitive
-    description:
-      name: path_parsing
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   path_provider:
     dependency: transitive
     description:
@@ -443,13 +338,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
-  rxdart:
-    dependency: transitive
-    description:
-      name: rxdart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.27.4"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -567,13 +455,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
-  uuid:
-    dependency: transitive
-    description:
-      name: uuid
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.6"
   vector_math:
     dependency: transitive
     description:
@@ -581,13 +462,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
-  web_socket_channel:
-    dependency: transitive
-    description:
-      name: web_socket_channel
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.0"
   webview_flutter:
     dependency: transitive
     description:
