@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -94,6 +95,27 @@ class _DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(
+        actions: [
+          Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.exit_to_app),
+                onPressed: () async {
+                  FirebaseAuth.instance.signOut();
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.check),
+                onPressed: () async {
+                  // FirebaseAuth.instance.signOut();
+                  final result =
+                      await FirebaseAuth.instance.getRedirectResult();
+                  print('result:$result');
+                },
+              ),
+            ],
+          )
+        ],
         iconTheme: const IconThemeData(color: Colors.green),
         centerTitle: false,
         title: const Center(

@@ -34,15 +34,21 @@ class AuthService {
 
   Future<void> signInWithGithub(BuildContext context) async {
     if (kIsWeb) {
-      await _signInWithGithubForWeb(context);
+      await _signInWithGithubForWeb();
     } else if (Platform.isAndroid || Platform.isIOS) {
       await _signInWithGithubForNative(context);
     }
   }
 
-  Future<void> _signInWithGithubForWeb(BuildContext context) async {
+  Future<void> _signInWithGithubForWeb() async {
     GithubAuthProvider githubProvider = GithubAuthProvider();
-    await FirebaseAuth.instance.signInWithPopup(githubProvider);
+
+    FirebaseAuth.instance
+        .signInWithPopup(githubProvider)
+        .then((userCredential) => print('token: ${userCredential.credential}'));
+    // await FirebaseAuth.instance.signInWithRedirect(githubProvider);
+    // final result = await FirebaseAuth.instance.getRedirectResult();
+    // print('result:$result');
   }
 
   Future<void> _signInWithGithubForNative(BuildContext context) async {
@@ -58,6 +64,7 @@ class AuthService {
 
     // Create a credential from the access token
     final githubAuthCredential = GithubAuthProvider.credential(result.token!);
+    print('token: ${result.token!}');
 
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(githubAuthCredential);
