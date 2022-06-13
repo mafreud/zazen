@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:simple_auth/simple_auth.dart';
 import 'package:zazen/auth/sign_in/sign_in_page_view_model.dart';
+import 'package:simple_auth/simple_auth.dart' as simpleAuth;
 
 class SignInPage extends ConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -25,7 +27,16 @@ class SignInPage extends ConsumerWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(primary: Colors.blue),
               onPressed: () async {
-                viewModel.signInWithGithub(context);
+                var api = simpleAuth.GithubApi(
+                    "github",
+                    "6fffbe9e8eb6c01a65e4",
+                    "96afd1f6528b81a3927b4e6e89598be86ba6b74e",
+                    "https://zazen-release.firebaseapp.com/__/auth/handler",
+                    scopes: ['read']);
+                var request = Request(
+                    HttpMethod.Get, "https://github.com/login/oauth/authorize");
+                var userInfo = await api.send<dynamic>(request);
+                print(userInfo);
               },
               child: const Text(
                 'Sign in with Github',
