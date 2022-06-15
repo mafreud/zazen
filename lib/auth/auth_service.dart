@@ -42,10 +42,7 @@ class AuthService {
 
   Future<void> _signInWithGithubForWeb() async {
     GithubAuthProvider githubProvider = GithubAuthProvider();
-
-    FirebaseAuth.instance
-        .signInWithPopup(githubProvider)
-        .then((userCredential) => print('token: ${userCredential.credential}'));
+    await FirebaseAuth.instance.signInWithPopup(githubProvider);
   }
 
   Future<void> _signInWithGithubForNative(BuildContext context) async {
@@ -61,7 +58,6 @@ class AuthService {
 
     // Create a credential from the access token
     final githubAuthCredential = GithubAuthProvider.credential(result.token!);
-    print('token: ${result.token!}');
 
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(githubAuthCredential);

@@ -80,8 +80,8 @@ class _DashboardPageState extends State<DashboardPage> {
           DraggableItem(
               id: "10",
               group: IssueStatus.done.name,
-              title: "Neumorphic Buttons",
-              description: "-by Rohan"),
+              title: "Buttons",
+              description: "-by"),
         ],
       },
     );
@@ -102,15 +102,6 @@ class _DashboardPageState extends State<DashboardPage> {
                 icon: const Icon(Icons.exit_to_app),
                 onPressed: () async {
                   FirebaseAuth.instance.signOut();
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.check),
-                onPressed: () async {
-                  // FirebaseAuth.instance.signOut();
-                  final result =
-                      await FirebaseAuth.instance.getRedirectResult();
-                  print('result:$result');
                 },
               ),
             ],
