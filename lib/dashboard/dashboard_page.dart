@@ -10,6 +10,7 @@ class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _DashboardPageState createState() => _DashboardPageState();
 }
 
@@ -160,9 +161,6 @@ class _DashboardPageState extends State<DashboardPage> {
                 children: [
                   Draggable<DraggableItem>(
                     data: draggableItems[index],
-                    child: ItemWidget(
-                      item: draggableItems[index],
-                    ),
                     childWhenDragging: Opacity(
                       opacity: 0.8,
                       child: ItemWidget(item: draggableItems[index]),
@@ -173,6 +171,9 @@ class _DashboardPageState extends State<DashboardPage> {
                           child: ItemWidget(
                         item: draggableItems[index],
                       )),
+                    ),
+                    child: ItemWidget(
+                      item: draggableItems[index],
                     ),
                   ),
                   buildDraggableItemDragTarget(group, index, widget.tileHeight),
@@ -241,7 +242,6 @@ class _DashboardPageState extends State<DashboardPage> {
       children: [
         LongPressDraggable<String>(
           data: group,
-          child: header,
           childWhenDragging: Opacity(
             opacity: 0.2,
             child: header,
@@ -252,6 +252,7 @@ class _DashboardPageState extends State<DashboardPage> {
               child: header,
             ),
           ),
+          child: header,
         ),
         buildDraggableItemDragTarget(group, 0, widget.groupHeaderHeight),
         DragTarget<String>(
