@@ -46,9 +46,6 @@ class AuthService {
     FirebaseAuth.instance
         .signInWithPopup(githubProvider)
         .then((userCredential) => print('token: ${userCredential.credential}'));
-    // await FirebaseAuth.instance.signInWithRedirect(githubProvider);
-    // final result = await FirebaseAuth.instance.getRedirectResult();
-    // print('result:$result');
   }
 
   Future<void> _signInWithGithubForNative(BuildContext context) async {

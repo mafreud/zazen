@@ -20,6 +20,7 @@ dependencies:
   oauth2_client: ^2.4.0
   simple_auth: ^2.0.10
   url_launcher: ^6.1.2
+  webview_flutter: ^3.0.4
 
 dev_dependencies:
   flutter_lints: ^1.0.0
