@@ -1,17 +1,24 @@
 // 📦 Package imports:
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_sign_in/github_sign_in.dart';
+import 'package:zazen/firebase/cloud_firestore/cloud_firestore_service.dart';
+import 'package:zazen/firebase/cloud_firestore/firestore_path.dart';
 
 // 🌎 Project imports:
 import '../firebase/firebase_auth_service.dart';
 
 final authServiceProvider = Provider<AuthService>(
-    (ref) => AuthService(ref.watch(firebaseAuthServiceProvider)));
+  (ref) => AuthService(
+    ref.watch(cloudFirestoreServiceProvider),
+    ref.watch(firebaseAuthServiceProvider),
+  ),
+);
 
 final authStateStreamProvider = StreamProvider.autoDispose<User?>((ref) {
   final firebaseAuthService = ref.watch(firebaseAuthServiceProvider);
@@ -20,8 +27,10 @@ final authStateStreamProvider = StreamProvider.autoDispose<User?>((ref) {
 
 class AuthService {
   AuthService(
+    this._cloudFirestoreService,
     this._firebaseAuthService,
   );
+  final CloudFirestoreService _cloudFirestoreService;
   final FirebaseAuthService _firebaseAuthService;
 
   User? get currentUser => _firebaseAuthService.currentUser;
@@ -56,10 +65,36 @@ class AuthService {
     // Trigger the sign-in flow
     final result = await gitHubSignIn.signIn(context);
 
+    final githubToken = result.token!;
+
     // Create a credential from the access token
     final githubAuthCredential = GithubAuthProvider.credential(result.token!);
 
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(githubAuthCredential);
+
+    await _createUserData(currentUserId!);
+
+    await _saveGithubToken(githubToken, currentUserId!);
+  }
+
+  Future<void> _createUserData(String userId) async {
+    await _cloudFirestoreService.setData(
+      path: FirestorePath.userDocument(userId),
+      data: {
+        'userId': userId,
+        'createdAt': Timestamp.now(),
+      },
+    );
+  }
+
+  Future<void> _saveGithubToken(String githubToken, String userId) async {
+    await _cloudFirestoreService.setData(
+      path: FirestorePath.githubTokenDocument(userId),
+      data: {
+        'data': githubToken,
+        'createdAt': Timestamp.now(),
+      },
+    );
   }
 }
