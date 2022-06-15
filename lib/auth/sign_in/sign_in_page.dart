@@ -25,7 +25,7 @@ class SignInPage extends ConsumerWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(primary: Colors.blue),
               onPressed: () async {
-                viewModel.signInWithGithub(context);
+                await viewModel.signInWithGithub(context);
               },
               child: const Text(
                 'Sign in with Github',

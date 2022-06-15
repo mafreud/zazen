@@ -34,13 +34,13 @@ class AuthService {
 
   Future<void> signInWithGithub(BuildContext context) async {
     if (kIsWeb) {
-      await _signInWithGithubForWeb(context);
+      await _signInWithGithubForWeb();
     } else if (Platform.isAndroid || Platform.isIOS) {
       await _signInWithGithubForNative(context);
     }
   }
 
-  Future<void> _signInWithGithubForWeb(BuildContext context) async {
+  Future<void> _signInWithGithubForWeb() async {
     GithubAuthProvider githubProvider = GithubAuthProvider();
     await FirebaseAuth.instance.signInWithPopup(githubProvider);
   }
