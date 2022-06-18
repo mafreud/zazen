@@ -62,30 +62,29 @@ class AuthService {
       redirectUrl: 'https://zazen-release.firebaseapp.com/__/auth/handler',
     );
 
-    // Trigger the sign-in flow
     final result = await gitHubSignIn.signIn(context);
-
     final githubToken = result.token!;
-
-    // Create a credential from the access token
     final githubAuthCredential = GithubAuthProvider.credential(result.token!);
+    final userCredential =
+        await FirebaseAuth.instance.signInWithCredential(githubAuthCredential);
+    final userId = userCredential.user!.uid;
 
-    // Once signed in, return the UserCredential
-    await FirebaseAuth.instance.signInWithCredential(githubAuthCredential);
-
-    await _createUserData(currentUserId!);
-
-    await _saveGithubToken(githubToken, currentUserId!);
+    await _createUserData(userId);
+    await _saveGithubToken(githubToken, userId);
   }
 
   Future<void> _createUserData(String userId) async {
-    await _cloudFirestoreService.setData(
-      path: FirestorePath.userDocument(userId),
-      data: {
-        'userId': userId,
-        'createdAt': Timestamp.now(),
-      },
-    );
+    try {
+      await _cloudFirestoreService.setData(
+        path: FirestorePath.userDocument(userId),
+        data: {
+          'userId': userId,
+          'createdAt': Timestamp.now(),
+        },
+      );
+    } catch (e) {
+      debugPrint('Error in _createUserData(): $e');
+    }
   }
 
   Future<void> _saveGithubToken(String githubToken, String userId) async {
